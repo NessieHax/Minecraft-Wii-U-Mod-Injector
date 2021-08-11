@@ -47,8 +47,6 @@ namespace Minecraft_Wii_U_Mod_Injector
             this.CreditsBtn = new MetroFramework.Controls.MetroButton();
             this.ConnectBtn = new MetroFramework.Controls.MetroButton();
             this.DiscordSrvBtn = new MetroFramework.Controls.MetroButton();
-            this.WiiUIpv4Box = new MetroFramework.Controls.MetroTextBox();
-            this.WiiUIpv4Lbl = new MetroFramework.Controls.MetroLabel();
             this.playersTab = new MetroFramework.Controls.MetroTabPage();
             this.XPLevelSlider = new System.Windows.Forms.NumericUpDown();
             this.PotionAmplifierSlider = new System.Windows.Forms.NumericUpDown();
@@ -390,8 +388,6 @@ namespace Minecraft_Wii_U_Mod_Injector
             this.MainTab.Controls.Add(this.CreditsBtn);
             this.MainTab.Controls.Add(this.ConnectBtn);
             this.MainTab.Controls.Add(this.DiscordSrvBtn);
-            this.MainTab.Controls.Add(this.WiiUIpv4Box);
-            this.MainTab.Controls.Add(this.WiiUIpv4Lbl);
             this.MainTab.HorizontalScrollbarBarColor = true;
             this.MainTab.HorizontalScrollbarHighlightOnWheel = false;
             this.MainTab.HorizontalScrollbarSize = 10;
@@ -493,11 +489,11 @@ namespace Minecraft_Wii_U_Mod_Injector
             // 
             // ConnectBtn
             // 
-            this.ConnectBtn.Location = new System.Drawing.Point(975, 601);
+            this.ConnectBtn.Location = new System.Drawing.Point(7, 601);
             this.ConnectBtn.Name = "ConnectBtn";
-            this.ConnectBtn.Size = new System.Drawing.Size(140, 23);
+            this.ConnectBtn.Size = new System.Drawing.Size(962, 23);
             this.ConnectBtn.TabIndex = 4;
-            this.ConnectBtn.Text = "Connect";
+            this.ConnectBtn.Text = "Attach to CEMU";
             this.ToolTipManager.SetToolTip(this.ConnectBtn, "Connects to your Wii U using the IPv4 provided");
             this.ConnectBtn.UseSelectable = true;
             this.ConnectBtn.Click += new System.EventHandler(this.ConnectBtnClicked);
@@ -514,50 +510,6 @@ namespace Minecraft_Wii_U_Mod_Injector
             this.ToolTipManager.SetToolTip(this.DiscordSrvBtn, "Will take you to the official Discord server for the Mod Injector");
             this.DiscordSrvBtn.UseSelectable = true;
             this.DiscordSrvBtn.Click += new System.EventHandler(this.DiscordSrvBtnClicked);
-            // 
-            // WiiUIpv4Box
-            // 
-            // 
-            // 
-            // 
-            this.WiiUIpv4Box.CustomButton.Image = null;
-            this.WiiUIpv4Box.CustomButton.Location = new System.Drawing.Point(863, 1);
-            this.WiiUIpv4Box.CustomButton.Name = "";
-            this.WiiUIpv4Box.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.WiiUIpv4Box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.WiiUIpv4Box.CustomButton.TabIndex = 1;
-            this.WiiUIpv4Box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.WiiUIpv4Box.CustomButton.UseSelectable = true;
-            this.WiiUIpv4Box.CustomButton.Visible = false;
-            this.WiiUIpv4Box.Lines = new string[0];
-            this.WiiUIpv4Box.Location = new System.Drawing.Point(84, 601);
-            this.WiiUIpv4Box.MaxLength = 32767;
-            this.WiiUIpv4Box.Name = "WiiUIpv4Box";
-            this.WiiUIpv4Box.PasswordChar = '\0';
-            this.WiiUIpv4Box.PromptText = "Your Wii U\'s IPv4 address (Seen in the TCP Gecko Installer)";
-            this.WiiUIpv4Box.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.WiiUIpv4Box.SelectedText = "";
-            this.WiiUIpv4Box.SelectionLength = 0;
-            this.WiiUIpv4Box.SelectionStart = 0;
-            this.WiiUIpv4Box.ShortcutsEnabled = true;
-            this.WiiUIpv4Box.Size = new System.Drawing.Size(885, 23);
-            this.WiiUIpv4Box.TabIndex = 3;
-            this.WiiUIpv4Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WiiUIpv4Box.UseSelectable = true;
-            this.WiiUIpv4Box.WaterMark = "Your Wii U\'s IPv4 address (Seen in the TCP Gecko Installer)";
-            this.WiiUIpv4Box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.WiiUIpv4Box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.WiiUIpv4Box.TextChanged += new System.EventHandler(this.CapturewiiuIpv4Box);
-            // 
-            // WiiUIpv4Lbl
-            // 
-            this.WiiUIpv4Lbl.AutoSize = true;
-            this.WiiUIpv4Lbl.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.WiiUIpv4Lbl.Location = new System.Drawing.Point(6, 601);
-            this.WiiUIpv4Lbl.Name = "WiiUIpv4Lbl";
-            this.WiiUIpv4Lbl.Size = new System.Drawing.Size(76, 19);
-            this.WiiUIpv4Lbl.TabIndex = 2;
-            this.WiiUIpv4Lbl.Text = "Wii U IPv4:";
             // 
             // playersTab
             // 
@@ -3707,7 +3659,6 @@ namespace Minecraft_Wii_U_Mod_Injector
         public MetroFramework.Controls.MetroTabPage settingsTab;
         public MetroFramework.Controls.MetroTile HomeTile;
         public MetroFramework.Controls.MetroTabPage MainTab;
-        public MetroFramework.Controls.MetroLabel WiiUIpv4Lbl;
         public MetroFramework.Controls.MetroTile PlayersTile;
         public MetroFramework.Controls.MetroButton ConnectBtn;
         public MetroFramework.Controls.MetroCheckBox InsaneCriticalHits;
@@ -3886,7 +3837,6 @@ namespace Minecraft_Wii_U_Mod_Injector
         public MetroFramework.Controls.MetroButton PlayerOptionsBtn;
         public MetroFramework.Controls.MetroLabel XPLevel;
         public System.Windows.Forms.NumericUpDown XPLevelSlider;
-        public MetroTextBox WiiUIpv4Box;
         public MetroTextBox BuildNotesBox;
         public MetroButton OpenLangMngrBtn;
         public MetroButton SetupTutorialBtn;
