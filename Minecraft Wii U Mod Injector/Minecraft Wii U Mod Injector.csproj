@@ -33,7 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -62,12 +62,16 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="Costura, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.5.4.0\lib\netstandard1.0\Costura.dll</HintPath>
     </Reference>
     <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="Memory, Version=1.2.21.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\Memory.dll.x86.1.2.22\lib\netstandard2.0\Memory.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -227,6 +231,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
@@ -249,6 +256,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CEMU\CemuMemory.cs" />
     <Compile Include="Forms\QuickModsMngr.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,12 +275,6 @@
     <Compile Include="Forms\FAQ.Designer.cs">
       <DependentUpon>FAQ.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PlayerOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PlayerOptions.Designer.cs">
-      <DependentUpon>PlayerOptions.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\DiscordRp.cs" />
     <Compile Include="Helpers\Files\Exceptions.cs" />
     <Compile Include="Helpers\Files\INIFile.cs" />
@@ -283,30 +285,11 @@
     <Compile Include="Helpers\StringUtils.cs" />
     <Compile Include="Helpers\Win Forms\FlexibleMessageBox.cs" />
     <Compile Include="Helpers\Win Forms\Messaging.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoU.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUByteSwap.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUCommands.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUConnect.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUDump.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUException.cs" />
-    <Compile Include="Wii U\Gecko U\GeckoUMemAreas.cs" />
     <Compile Include="Forms\Credits.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Credits.Designer.cs">
       <DependentUpon>Credits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MapTextEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MapTextEditor.Designer.cs">
-      <DependentUpon>MapTextEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\NNIDEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\NNIDEditor.Designer.cs">
-      <DependentUpon>NNIDEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -327,15 +310,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Credits.resx">
       <DependentUpon>Credits.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MapTextEditor.resx">
-      <DependentUpon>MapTextEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PlayerOptions.resx">
-      <DependentUpon>PlayerOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NNIDEditor.resx">
-      <DependentUpon>NNIDEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -390,6 +364,7 @@
     <None Include="Resources\EditBtn.png" />
     <None Include="Resources\MinecraftWiiUModInjector.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
